@@ -33,10 +33,9 @@ public class AutoDrive extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    int i = 0;
+    int i = Math.round(timer.get() / 100);
     double driveOutput = MotionProfile.profile[i][1];
     drivetrain.directDrive(driveOutput);
-    ++i;
   }
 
   // Called once the command ends or is interrupted.
